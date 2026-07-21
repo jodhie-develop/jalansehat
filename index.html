@@ -58,7 +58,20 @@
         <!-- GAMBAR BACKGROUND HERO -->
         <div class="absolute inset-0 z-0 pointer-events-none opacity-75 bg-top bg-no-repeat bg-contain" style="background-image: url('hero_bgg.png.jpg');"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#FFF8F0]/30 via-[#FFF8F0]/80 to-[#FFF8F0] z-0 pointer-events-none"></div>
+            <!-- 🎯 AREA DUA TOMBOL UTAMA (BAGIKAN & TANYA AI) -->
+            <div class="my-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <!-- 1. TOMBOL BAGIKAN -->
+                <button onclick="openShareModal()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                    <i data-lucide="share-2" class="w-5 h-5"></i>
+                    Ajak Tetangga / Bagikan! 🚀
+                </button>
 
+                <!-- 2. TOMBOL TANYA AI BESAR (DIBAWAHNYA) -->
+                <button onclick="toggleChat()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-red-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                    Tanya PakDhe (AI)
+                </button>
+            </div>
         <!-- CONTENT -->
         <div class="relative z-10">
             <p class="font-poster text-slate-700 text-sm sm:text-base tracking-wide uppercase mb-4 font-bold bg-white/80 backdrop-blur inline-block px-4 py-1.5 rounded-full border border-orange-200/60 shadow-sm">
@@ -98,20 +111,7 @@
                 </p>
             </div>
 
-            <!-- 🎯 AREA DUA TOMBOL UTAMA (BAGIKAN & TANYA AI) -->
-            <div class="my-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-                <!-- 1. TOMBOL BAGIKAN -->
-                <button onclick="openShareModal()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
-                    <i data-lucide="share-2" class="w-5 h-5"></i>
-                    Ajak Tetangga / Bagikan! 🚀
-                </button>
 
-                <!-- 2. TOMBOL TANYA AI BESAR (DIBAWAHNYA) -->
-                <button onclick="toggleChat()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-red-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
-                    <i data-lucide="bot" class="w-5 h-5"></i>
-                    Tanya PakDhe (AI)
-                </button>
-            </div>
 
         </div>
     </section>
