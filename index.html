@@ -8,191 +8,181 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts untuk Font Poster Tebal & Modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-poster { font-family: 'Fredoka', sans-serif; }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
-        }
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+            50% { transform: translateY(-10px) rotate(1deg); }
         }
         .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 5s ease-in-out 2s infinite; }
-        .pulse-bg { animation: pulse-glow 3s ease-in-out infinite; }
+        
+        /* Ribbon / Banner Style ala Poster */
+        .ribbon-red {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.4);
+        }
+        .banner-skew {
+            transform: rotate(-1.5deg);
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-rose-500 selection:text-white">
+<body class="bg-red-50 text-slate-800 min-h-screen relative overflow-x-hidden selection:bg-red-600 selection:text-white">
 
-    <!-- DEKORASI BACKGROUND ANIMASI -->
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-orange-500/20 via-rose-500/20 to-amber-400/20 blur-[120px] rounded-full pointer-events-none pulse-bg"></div>
+    <!-- DEKORASI BENDERA MERAH PUTIH SKEW BACKGROUND -->
+    <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-red-600 via-white to-red-600 z-50"></div>
 
     <!-- NAVBAR -->
-    <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between relative z-10">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-rose-500/30">
-                🚶‍♂️
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between relative z-10">
+        <div class="flex items-center space-x-3 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-red-200 shadow-sm">
+            <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-sm shadow">
+                🇮🇩
             </div>
-            <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-rose-300 to-amber-300">
+            <span class="font-poster text-red-700 font-bold text-base tracking-wide">
                 RW 10 Kebonagung 2
             </span>
         </div>
-        <button onclick="toggleChat()" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition flex items-center gap-2 text-rose-300 shadow-sm">
-            <i data-lucide="bot" class="w-4 h-4 text-rose-400"></i> Tanya AI Bot
+        <button onclick="toggleChat()" class="px-4 py-2 text-xs font-bold rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg transition flex items-center gap-2">
+            <i data-lucide="bot" class="w-4 h-4"></i> Tanya Mba Kebonagung
         </button>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="max-w-6xl mx-auto px-6 pt-10 pb-20 text-center relative z-10">
-        <!-- Badge Unik -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold mb-8 shadow-inner animate-bounce">
-            🎉 Pesta Rakyat Warga Griya Kebonagung 2
-        </div>
-
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            Jalan Sehat & Gebyar <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-rose-500">
-                RW 10 Ceria 2026! 🥳
-            </span>
-        </h1>
-
-        <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Saatnya kumpul tetangga, sehat bareng, joget bareng, dan bawa pulang ratusan doorprize heboh! Khusus seluruh warga Griya Kebonagung 2.
+    <!-- HERO SECTION (STYLE POSTER MERAH PUTIH) -->
+    <section class="max-w-4xl mx-auto px-6 pt-6 pb-16 text-center relative z-10">
+        
+        <!-- Slogan / Sub-header Atas -->
+        <p class="font-poster text-slate-600 text-sm sm:text-base tracking-wide uppercase mb-3 font-semibold">
+            ✨ Langkah Bersama untuk Kebersamaan Warga ✨
         </p>
 
-        <!-- WAKTU & TANGGAL -->
-        <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-4 bg-slate-900/80 backdrop-blur-md border border-slate-800 p-4 sm:p-6 rounded-3xl mb-12 shadow-2xl">
-            <div class="flex items-center gap-3 px-4">
-                <div class="w-12 h-12 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center">
-                    <i data-lucide="calendar" class="w-6 h-6"></i>
-                </div>
-                <div class="text-left">
-                    <p class="text-xs text-slate-400">Hari & Tanggal</p>
-                    <p class="text-base font-bold text-white">Minggu, 6 September 2026</p>
-                </div>
-            </div>
-            <div class="hidden sm:block w-[1px] h-10 bg-slate-800"></div>
-            <div class="flex items-center gap-3 px-4">
-                <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center">
-                    <i data-lucide="map-pin" class="w-6 h-6"></i>
-                </div>
-                <div class="text-left">
-                    <p class="text-xs text-slate-400">Lokasi Start</p>
-                    <p class="text-base font-bold text-white">Balai RW 10</p>
-                </div>
+        <!-- ILUSTRASI WARGA BERSORAK (Mirip Gambar Poster) -->
+        <div class="relative max-w-md mx-auto my-4">
+            <img src="https://illustrations.popsy.co/red/surfer.svg" alt="Warga Semangat" class="w-64 sm:w-80 mx-auto drop-shadow-xl animate-float">
+        </div>
+
+        <!-- MAIN TITLE BANNER (MERAH TEBAL ALA POSTER) -->
+        <div class="banner-skew my-6">
+            <div class="inline-block ribbon-red text-white font-poster text-4xl sm:text-6xl md:text-7xl font-extrabold px-8 py-4 rounded-2xl border-4 border-white shadow-2xl tracking-wider uppercase">
+                JALAN SEHAT
             </div>
         </div>
 
-        <!-- GAMBAR / ILUSTRASI FUN -->
-        <div class="relative max-w-3xl mx-auto mt-6">
-            <img src="https://illustrations.popsy.co/amber/happy-group.svg" alt="Warga Kebonagung Fun" class="w-full max-w-md mx-auto drop-shadow-[0_20px_50px_rgba(244,63,94,0.3)] animate-float">
-            <!-- Stickers Floating -->
-            <div class="absolute top-4 left-4 sm:left-10 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-2xl text-xs font-bold shadow-xl animate-float-delayed flex items-center gap-2">
-                💃 Senam Massal
+        <!-- TANGGAL UTAMA (CARD MERAH TERANG) -->
+        <div class="bg-red-600 text-white font-poster text-2xl sm:text-4xl font-extrabold px-6 py-3 rounded-xl inline-block shadow-lg border-2 border-white mb-6">
+            6 SEPTEMBER 2026
+        </div>
+
+        <!-- LOKASI & WAKTU (BULATAN TANGGAL ALA POSTER) -->
+        <div class="flex justify-center items-center gap-3 my-4">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-800 text-white font-poster font-extrabold flex flex-col items-center justify-center text-xs sm:text-sm border-2 border-white shadow">
+                <span>MINGGU</span>
             </div>
-            <div class="absolute bottom-6 right-4 sm:right-10 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-2xl text-xs font-bold shadow-xl animate-float flex items-center gap-2">
-                🎁 Doorprize Utama!
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-800 text-white font-poster font-extrabold flex flex-col items-center justify-center text-xs sm:text-sm border-2 border-white shadow">
+                <span>06.30</span>
+                <span class="text-[9px]">WIB</span>
+            </div>
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-800 text-white font-poster font-extrabold flex flex-col items-center justify-center text-xs sm:text-sm border-2 border-white shadow">
+                <span>RW 10</span>
+            </div>
+        </div>
+
+        <p class="font-poster text-red-900 text-base sm:text-lg font-bold tracking-wide uppercase mb-6">
+            📍 LOKASI START: LAPANGAN UTAMA GRIYA KEBONAGUNG 2
+        </p>
+
+        <!-- DESKRIPSI SINGKAT -->
+        <div class="bg-white/90 backdrop-blur border border-red-200 p-6 rounded-3xl max-w-2xl mx-auto shadow-md">
+            <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+                Dalam rangka mempererat silaturahmi & gaya hidup sehat seluruh warga Griya Kebonagung 2, mari kita ramaikan Jalan Sehat, Senam Ceria, Hiburan Musik, dan Pembagian Ratusan Doorprize!
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION RANGKAIAN ACARA -->
+    <section class="max-w-4xl mx-auto px-6 py-10 relative z-10">
+        <div class="text-center mb-10">
+            <h2 class="font-poster text-2xl sm:text-3xl font-extrabold text-red-800 uppercase">
+                🎈 Rangkaian Acara Meriah
+            </h2>
+            <div class="w-24 h-1 bg-red-600 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl mb-2">🏃‍♂️</div>
+                <h3 class="font-poster text-red-700 text-base font-bold">Jalan Sehat</h3>
+                <p class="text-xs text-slate-500 mt-1">Keliling komplek ramah lansia & anak-anak.</p>
+            </div>
+            <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl mb-2">🤸‍♀️</div>
+                <h3 class="font-poster text-red-700 text-base font-bold">Senam Massal</h3>
+                <p class="text-xs text-slate-500 mt-1">Pemanasan bareng instruktur energik.</p>
+            </div>
+            <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl mb-2">🎤</div>
+                <h3 class="font-poster text-red-700 text-base font-bold">Hiburan Musik</h3>
+                <p class="text-xs text-slate-500 mt-1">Panggung musik & karaoke warga.</p>
+            </div>
+            <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl mb-2">🎁</div>
+                <h3 class="font-poster text-red-700 text-base font-bold">Bagi Doorprize</h3>
+                <p class="text-xs text-slate-500 mt-1">Undian hadiah utama & hiburan.</p>
             </div>
         </div>
     </section>
 
-    <!-- RANGKAIAN ACARA (CARDS) -->
-    <section class="max-w-6xl mx-auto px-6 py-16 relative z-10">
-        <div class="text-center mb-14">
-            <h2 class="text-3xl font-extrabold text-white mb-3">Ada Acara Apa Aja? 🤔</h2>
-            <p class="text-slate-400 text-sm">Dijamin seru dari pagi sampai siang, nggak bakal bosen!</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-3xl hover:border-orange-500/50 transition duration-300 hover:-translate-y-2 group">
-                <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                    🏃‍♀️
-                </div>
-                <h3 class="text-lg font-bold text-white mb-2">1. Jalan Sehat</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">Rute santai keliling komplek Griya Kebonagung 2 sambil sapa tetangga kiri kanan.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-3xl hover:border-rose-500/50 transition duration-300 hover:-translate-y-2 group">
-                <div class="w-14 h-14 bg-rose-500/10 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                    🤸‍♂️
-                </div>
-                <h3 class="text-lg font-bold text-white mb-2">2. Senam Ceria</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">Pemanasan bareng instruktur energik. Semua umur wajib goyang!</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-3xl hover:border-amber-500/50 transition duration-300 hover:-translate-y-2 group">
-                <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                    🎸
-                </div>
-                <h3 class="text-lg font-bold text-white mb-2">3. Hiburan Musik</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">Penampilan live music lokal, karaoke warga, dan tari-tarian anak-anak RT.</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-3xl hover:border-emerald-500/50 transition duration-300 hover:-translate-y-2 group">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-                    🎁
-                </div>
-                <h3 class="text-lg font-bold text-white mb-2">4. Bagi Doorprize</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">Undian kupon berhadiah elektronik, sembako, hingga hadiah utama sepeda!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="max-w-6xl mx-auto px-6 py-10 border-t border-slate-900 text-center text-xs text-slate-500">
-        <p>© 2026 Panitia Jalan Sehat RW 10 Griya Kebonagung 2. Semangat Kebersamaan!</p>
+    <!-- FOOTER ALA POSTER -->
+    <footer class="bg-red-700 text-white text-center py-6 px-4 mt-10">
+        <p class="font-poster text-sm font-semibold">Panitia Jalan Sehat RW 10 Griya Kebonagung 2</p>
+        <p class="text-xs text-red-200 mt-1">Info Pendaftaran & Kupon: Hubungi Pengurus RT Masing-Masing</p>
     </footer>
 
-    <!-- FLOATING CHATBOT WIDGET (CANGGIH & FUN) -->
+    <!-- FLOATING CHATBOT WIDGET (SUDAH DIPERBAIKI POSISINYA) -->
     <div class="fixed bottom-6 right-6 z-50">
         <!-- Floating Button -->
-        <button onclick="toggleChat()" class="relative w-14 h-14 bg-gradient-to-tr from-orange-500 to-rose-500 text-white rounded-full flex items-center justify-center shadow-2xl shadow-rose-500/40 hover:scale-110 transition duration-300">
+        <button onclick="toggleChat()" class="relative w-14 h-14 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-2xl shadow-red-600/50 hover:scale-105 transition duration-300 border-2 border-white">
             <i data-lucide="bot" class="w-7 h-7"></i>
-            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 border-2 border-slate-950 rounded-full animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 border-2 border-white rounded-full animate-ping"></span>
         </button>
 
-        <!-- Box Chat Window (Posisi & Tinggi Sudah Pas) -->
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[320px] sm:w-[380px] h-[75vh] max-h-[500px] bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+        <!-- Box Chat Window (Posisi Pas di Atas Button) -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[320px] sm:w-[360px] h-[75vh] max-h-[480px] bg-white/95 backdrop-blur-xl border-2 border-red-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
             <!-- Header Chat -->
-            <div class="p-4 bg-gradient-to-r from-orange-500/20 to-rose-500/20 border-b border-slate-800 flex items-center justify-between">
+            <div class="p-4 bg-red-600 text-white flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-2xl bg-rose-500/20 flex items-center justify-center text-rose-400 font-bold border border-rose-500/30">
+                    <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg font-bold border border-white/30">
                         🤖
                     </div>
                     <div>
-                        <h3 class="text-xs font-bold text-white">Mba Kebonagung (AI Bot)</h3>
-                        <p class="text-[10px] text-emerald-400 flex items-center gap-1">
+                        <h3 class="font-poster text-xs font-bold">Mba Kebonagung (AI)</h3>
+                        <p class="text-[10px] text-red-100 flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asisten RW 10
                         </p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white p-1">
+                <button onclick="toggleChat()" class="text-red-100 hover:text-white p-1">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
 
             <!-- Messages Container -->
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed bg-slate-50">
                 <div class="flex items-start space-x-2">
-                    <div class="bg-slate-800/90 rounded-2xl p-3 text-slate-200 border border-slate-700/50">
-                        Halo warga Griya Kebonagung 2! 👋 Saya Mba Kebonagung, AI Panitia Jalan Sehat. Mau tanya jadwal, rute, atau kupon doorprize?
+                    <div class="bg-white rounded-2xl p-3 text-slate-800 border border-slate-200 shadow-sm">
+                        Halo warga Griya Kebonagung 2! 👋 Saya Mba Kebonagung. Ada yang ingin ditanyakan soal rute, kupon, atau doorprize Jalan Sehat?
                     </div>
                 </div>
             </div>
 
             <!-- Input Box -->
-            <form onsubmit="handleSendChat(event)" class="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
+            <form onsubmit="handleSendChat(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
                 <input type="text" id="chat-input" placeholder="Tanya Mba Kebonagung..." 
-                    class="flex-1 bg-slate-900 border border-slate-800 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-rose-500">
-                <button type="submit" class="bg-gradient-to-r from-orange-500 to-rose-500 text-white px-3.5 py-2.5 rounded-2xl hover:opacity-90 transition">
+                    class="flex-1 bg-slate-100 border border-slate-300 rounded-2xl px-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500">
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3.5 py-2 rounded-2xl transition shadow-md">
                     <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
             </form>
@@ -218,7 +208,7 @@
             // Pesan User
             chat.innerHTML += `
                 <div class="flex items-start justify-end">
-                    <div class="bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-2xl p-3 max-w-[80%] shadow-md">
+                    <div class="bg-red-600 text-white rounded-2xl p-3 max-w-[80%] shadow-sm">
                         ${query}
                     </div>
                 </div>
@@ -229,7 +219,7 @@
             const loadId = 'loading-' + Date.now();
             chat.innerHTML += `
                 <div id="${loadId}" class="flex items-start space-x-2">
-                    <div class="bg-slate-800/80 rounded-2xl p-3 text-slate-400 animate-pulse border border-slate-700/50">
+                    <div class="bg-white rounded-2xl p-3 text-slate-400 animate-pulse border border-slate-200">
                         Mba Kebonagung lagi mikir... 💭
                     </div>
                 </div>
@@ -237,22 +227,10 @@
             chat.scrollTop = chat.scrollHeight;
 
             try {
-                // System Instruction Khusus Acara
-                const systemPrompt = `Kamu adalah 'Mba Kebonagung', AI Panitia Jalan Sehat RW 10 Griya Kebonagung 2.
-                Informasi Acara:
-                - Tanggal: Minggu, 6 September 2026.
-                - Tempat: Lapangan Utama RW 10 Griya Kebonagung 2.
-                - Peserta: Seluruh warga Griya Kebonagung 2.
-                - Rangkaian Acara: Jalan Sehat, Senam Ceria, Hiburan Musik, dan Pembagian Hadiah/Doorprize.
-                Jawab pertanyaan warga dengan bahasa Jawa halus campur Indonesia yang ramah, santai, lucu, dan penuh semangat kebersamaan!`;
-
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        message: query,
-                        systemInstruction: systemPrompt
-                    })
+                    body: JSON.stringify({ message: query })
                 });
 
                 const result = await response.json();
@@ -261,7 +239,7 @@
                 if (result.reply) {
                     chat.innerHTML += `
                         <div class="flex items-start space-x-2">
-                            <div class="bg-slate-800/90 rounded-2xl p-3 text-slate-200 border border-slate-700/50 whitespace-pre-line">
+                            <div class="bg-white rounded-2xl p-3 text-slate-800 border border-slate-200 shadow-sm whitespace-pre-line">
                                 ${result.reply}
                             </div>
                         </div>
@@ -273,8 +251,8 @@
                 console.error(err);
                 document.getElementById(loadId).remove();
                 chat.innerHTML += `
-                    <div class="text-rose-400 p-2 bg-rose-950/30 border border-rose-900/40 rounded-xl text-[11px]">
-                        ⚠️ Wah, jaringan Mba Kebonagung agak tersendat nih, Cak.
+                    <div class="text-red-500 p-2 bg-red-50 border border-red-200 rounded-xl text-[11px]">
+                        ⚠️ Ada kendala jaringan nih, Cak.
                     </div>
                 `;
             }
