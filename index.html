@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jalan Sehat Griya Kebonagung 2</title>
+    <title>Jalan Sehat RW 10 Griya Kebonagung 2</title>
 
     <!-- 📸 META OPEN GRAPH / THUMBNAIL UNTUK WHATSAPP, FB, & TWITTER -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="🚶‍♂️ Jalan Sehat Griya Kebonagung 2!">
-    <meta property="og:description" content="Kumpul tetangga, jalan sehat, senam, hiburan musik, bazar dan doorprize! Minggu, 6 September 2026. Klik untuk info lengkap!">
-    <meta property="og:image" content="hero_bgg.png.jpg"> <!-- Menggunakan gambar hero sebagai thumbnail -->
+    <meta property="og:title" content="🚶‍♂️ Jalan Sehat & Hiburan Griya Kebonagung 2!">
+    <meta property="og:description" content="Kumpul tetangga, jalan sehat, senam, hiburan musik, dan ratusan doorprize! Minggu, 6 September 2026. Klik untuk info lengkap!">
+    <meta property="og:image" content="hero_bgg.png.jpg">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -58,7 +58,7 @@
             </button>
             
             <button onclick="toggleChat()" class="px-4 py-2 text-xs font-bold rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg transition flex items-center gap-2 border border-white">
-                <i data-lucide="bot" class="w-4 h-4"></i> Tanya Pakde
+                <i data-lucide="bot" class="w-4 h-4"></i> Tanya AI
             </button>
         </div>
     </nav>
@@ -67,7 +67,7 @@
     <section class="relative max-w-4xl mx-auto px-6 pt-8 pb-16 text-center z-10 overflow-hidden rounded-b-3xl">
         
         <!-- GAMBAR BACKGROUND HERO -->
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-75 bg-top bg-no-repeat bg-contain" style="background-image: url('hero_bgg.png.jpg');"></div>
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-75 bg-top bg-no-repeat bg-contain" style="background-image: url('hero-bg.png');"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#FFF8F0]/30 via-[#FFF8F0]/80 to-[#FFF8F0] z-0 pointer-events-none"></div>
 
         <!-- CONTENT -->
@@ -100,14 +100,21 @@
             </div>
 
             <p class="font-poster text-red-900 text-base sm:text-lg font-bold tracking-wide uppercase mb-6 mt-4">
-                📍 START & FINISH: BALAI RW GRIYA KEBONAGUNG 2
+                📍 LOKASI START: LAPANGAN UTAMA GRIYA KEBONAGUNG 2
             </p>
 
-            <!-- TOMBOL BAGIKAN BESAR (CALL TO ACTION) -->
-            <div class="my-6">
-                <button onclick="openShareModal()" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center gap-2">
+            <!-- 🎯 AREA DUA TOMBOL UTAMA (BAGIKAN & TANYA AI) -->
+            <div class="my-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <!-- 1. TOMBOL BAGIKAN -->
+                <button onclick="openShareModal()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
                     <i data-lucide="share-2" class="w-5 h-5"></i>
-                    Ajak Tetangga / Bagikan Acara Ini! 🚀
+                    Ajak Tetangga / Bagikan! 🚀
+                </button>
+
+                <!-- 2. TOMBOL TANYA AI BESAR (DIBAWAHNYA) -->
+                <button onclick="toggleChat()" class="w-full sm:w-auto flex-1 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-red-600/30 border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                    Tanya Mba Kebonagung (AI) 🤖
                 </button>
             </div>
 
@@ -132,22 +139,22 @@
             <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
                 <div class="text-3xl mb-2">🏃‍♂️</div>
                 <h3 class="font-poster text-red-700 text-base font-bold">Jalan Sehat</h3>
-                <p class="text-xs text-slate-500 mt-1">Keliling GKA2 dan sekitarnya</p>
+                <p class="text-xs text-slate-500 mt-1">Keliling komplek ramah lansia & anak-anak.</p>
             </div>
             <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
                 <div class="text-3xl mb-2">🤸‍♀️</div>
                 <h3 class="font-poster text-red-700 text-base font-bold">Senam Massal</h3>
-                <p class="text-xs text-slate-500 mt-1">Bersama dengan mbak instruktur TOPPPP.</p>
+                <p class="text-xs text-slate-500 mt-1">Pemanasan bareng instruktur energik.</p>
             </div>
             <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
                 <div class="text-3xl mb-2">🎤</div>
                 <h3 class="font-poster text-red-700 text-base font-bold">Hiburan Musik</h3>
-                <p class="text-xs text-slate-500 mt-1">Bazar dan Panggung Hiburan</p>
+                <p class="text-xs text-slate-500 mt-1">Panggung musik & karaoke warga.</p>
             </div>
             <div class="bg-white border-2 border-red-100 p-5 rounded-2xl text-center shadow-sm hover:shadow-md transition">
                 <div class="text-3xl mb-2">🎁</div>
                 <h3 class="font-poster text-red-700 text-base font-bold">Bagi Doorprize</h3>
-                <p class="text-xs text-slate-500 mt-1">Undian hadiah</p>
+                <p class="text-xs text-slate-500 mt-1">Undian hadiah utama & hiburan.</p>
             </div>
         </div>
     </section>
@@ -182,38 +189,32 @@
 
             <!-- Pilihan Platform Share -->
             <div class="grid grid-cols-2 gap-3 mb-4">
-                <!-- WhatsApp Chat/Grup -->
                 <button onclick="shareWhatsApp()" class="flex items-center gap-2.5 p-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-bold transition">
                     <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">WA</span>
                     <span>WhatsApp</span>
                 </button>
 
-                <!-- WA Status -->
                 <button onclick="shareWAStatus()" class="flex items-center gap-2.5 p-3 rounded-2xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-bold transition">
                     <span class="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">ST</span>
                     <span>WA Status</span>
                 </button>
 
-                <!-- Facebook -->
                 <button onclick="shareFacebook()" class="flex items-center gap-2.5 p-3 rounded-2xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold transition">
                     <span class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">FB</span>
                     <span>Facebook</span>
                 </button>
 
-                <!-- Instagram -->
                 <button onclick="shareInstagram()" class="flex items-center gap-2.5 p-3 rounded-2xl bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-800 text-xs font-bold transition">
                     <span class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center font-bold text-xs">IG</span>
                     <span>Instagram</span>
                 </button>
 
-                <!-- TikTok -->
                 <button onclick="shareTikTok()" class="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 text-xs font-bold transition col-span-2">
                     <span class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">TT</span>
                     <span>TikTok (Salin Teks & Buka TikTok)</span>
                 </button>
             </div>
 
-            <!-- Tombol Copy Link Teks -->
             <button onclick="copyShareText()" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
                 <i data-lucide="copy" class="w-4 h-4"></i>
                 <span id="copy-btn-text">Salin Teks Undangan & Link</span>
@@ -272,7 +273,6 @@
 
         // --- MODAL SHARE LOGIC ---
         function openShareModal() {
-            // Gunakan Web Share API jika dibuka dari Smartphone
             if (navigator.share) {
                 navigator.share({
                     title: 'Jalan Sehat RW 10 Griya Kebonagung 2',
