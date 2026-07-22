@@ -19,12 +19,11 @@ export default async function handler(req, res) {
         const { message } = req.body;
         if (!message) return res.status(400).json({ error: 'Pesan tidak boleh kosong' });
 
-        // 📝 1. LOG PESAN DARI WARGA
+        // 📝 1. LOG PESAN DARI WARGA (VERCEL)
         console.log(`\n========================================`);
         console.log(`📩 [CHAT MASUK WARGA]: ${message}`);
-        console.log(`⏰ [WAKTU]: ${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}`);
 
-        // 🔍 BACA FILE TEXT KNOWLEDGE BASE SECARA OTOMATIS
+        // 🔍 BACA FILE TEXT KNOWLEDGE BASE
         let fileData = "";
         try {
             const filePath = path.join(process.cwd(), 'data-acara.txt');
@@ -34,7 +33,6 @@ export default async function handler(req, res) {
             fileData = "Informasi detail acara belum diisi.";
         }
 
-        // 🧠 SYSTEM INSTRUCTION + DOKUMEN TEKS
         const systemInstruction = `Kamu adalah 'Mba Kebonagung', AI Panitia Jalan Sehat RW 10 Griya Kebonagung 2.
 Jawab pertanyaan warga berdasarkan DATA RESMI ACARA berikut ini:
 
@@ -60,7 +58,12 @@ Aturan Menjawab:
                     { role: 'user', content: message }
                 ],
                 temperature: 0.7,
-                store: true // 💡 Menginstruksikan OpenAI untuk menyimpan log percakapan di platform/project jika fitur didukung
+                store: true, // Menyimpan log di OpenAI Project
+                metadata: {
+                    app_name: "jalan_sehat_rw10",
+                    environment: "production"
+                },
+                user: "warga_rw10_web" // Menandai user agar terlacak di dashboard
             })
         });
 
@@ -73,7 +76,7 @@ Aturan Menjawab:
 
         const reply = data.choices[0]?.message?.content || 'Maaf, Mba Kebonagung belum bisa jawab.';
 
-        // 📝 2. LOG BALASAN DARI AI
+        // 📝 2. LOG BALASAN AI (VERCEL)
         console.log(`🤖 [BALASAN MBA KEBONAGUNG]: ${reply}`);
         console.log(`========================================\n`);
 
