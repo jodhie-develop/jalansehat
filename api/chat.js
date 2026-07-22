@@ -19,13 +19,18 @@ export default async function handler(req, res) {
         const { message } = req.body;
         if (!message) return res.status(400).json({ error: 'Pesan tidak boleh kosong' });
 
+        // 📝 1. LOG PESAN DARI WARGA
+        console.log(`\n========================================`);
+        console.log(`📩 [CHAT MASUK WARGA]: ${message}`);
+        console.log(`⏰ [WAKTU]: ${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}`);
+
         // 🔍 BACA FILE TEXT KNOWLEDGE BASE SECARA OTOMATIS
         let fileData = "";
         try {
             const filePath = path.join(process.cwd(), 'data-acara.txt');
             fileData = fs.readFileSync(filePath, 'utf8');
         } catch (err) {
-            console.error("Gagal membaca file data-acara.txt:", err);
+            console.error("⚠️ Gagal membaca file data-acara.txt:", err);
             fileData = "Informasi detail acara belum diisi.";
         }
 
@@ -54,20 +59,28 @@ Aturan Menjawab:
                     { role: 'system', content: systemInstruction },
                     { role: 'user', content: message }
                 ],
-                temperature: 0.7
+                temperature: 0.7,
+                store: true // 💡 Menginstruksikan OpenAI untuk menyimpan log percakapan di platform/project jika fitur didukung
             })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
+            console.error(`❌ [ERROR OPENAI]:`, data.error?.message);
             return res.status(response.status).json({ error: data.error?.message || 'Gagal terhubung ke OpenAI' });
         }
 
         const reply = data.choices[0]?.message?.content || 'Maaf, Mba Kebonagung belum bisa jawab.';
+
+        // 📝 2. LOG BALASAN DARI AI
+        console.log(`🤖 [BALASAN MBA KEBONAGUNG]: ${reply}`);
+        console.log(`========================================\n`);
+
         return res.status(200).json({ reply });
 
     } catch (error) {
+        console.error("❌ [SYSTEM ERROR]:", error.message);
         return res.status(500).json({ error: error.message });
     }
 }
