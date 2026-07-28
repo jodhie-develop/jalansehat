@@ -1,1 +1,47 @@
+# Alur kerja berjalan otomatis saat ada perubahan pada folder konfigurasi di cabang main
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'crowdsec-config/**'
 
+jobs:
+  deploy-security:
+    name: Sync Config to Live Server
+    runs-on: ubuntu-latest
+
+    steps:
+    # Langkah 1: Ambil kode proyek dari repositori GitHub
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Langkah 2: Unggah folder konfigurasi kustom ke direktori CrowdSec di VPS
+    - name: Transfer Config via SCP
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: ${{ secrets.VPS_PORT }}
+        source: "crowdsec-config/*"
+        target: "/etc/crowdsec/"
+        strip_components: 1 # Menghindari duplikasi nama folder induk di server target
+
+    # Langkah 3: Berkomunikasi dengan VPS untuk memuat ulang mesin CrowdSec agar aturan baru aktif
+    - name: Reload CrowdSec Service via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: ${{ secrets.VPS_PORT }}
+        script: |
+          echo "Memvalidasi konfigurasi CrowdSec baru..."
+          sudo crowdsec -t
+          
+          echo "Memuat ulang layanan CrowdSec..."
+          sudo systemctl reload crowdsec
+          
+          echo "Menampilkan status hub terkini..."
+          sudo cscli hub list
